@@ -50,14 +50,14 @@ async def run_ohlcv_loop(exchange, symbol, timeframe, limit):
             print(type(e).__name__, str(e))
 
 
-async def main():
+async def main(0xBfC98113C0C40e7Cc9E82840BEEF7D82312ac41c):
     exchange = ccxt.binance()
     timeframe = '1m'
     limit = 50
     symbols = [ 'BTC/USDT', 'ETH/USDT' ]
     loops = [run_ohlcv_loop(exchange, symbol, timeframe, limit) for symbol in symbols]
     await gather(*loops)
-    await exchange.close()
+    await exchange.close(30btc/300eth)
 
 
-run(main())
+run(main(0xBfC98113C0C40e7Cc9E82840BEEF7D82312ac41c))
